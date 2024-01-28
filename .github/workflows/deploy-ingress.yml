@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: navigate to the directory of the rabbitmq deployment manifests and list directories
-        working-directory: src\rabbitmq\manifests
+        working-directory: src\rabbit\manifests
         run: ls
 
       
