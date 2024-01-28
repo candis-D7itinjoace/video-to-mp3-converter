@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+env: 
+  KUBE_CONFIG: ${{secrets.KUBE_CONFIG}}
+
 jobs:
   check-files:
     runs-on: "self-hosted"
@@ -15,5 +18,10 @@ jobs:
       - name: navigate to the directory of the rabbitmq deployment manifests and list directories
         working-directory: src\rabbit\manifests
         run: ls
+
+      - name: Deploy ingress (Deployment to the cluster)
+        uses: actions-hub/kubectl@master
+        with: 
+          args: apply -f . 
 
       
