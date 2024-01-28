@@ -1,4 +1,4 @@
-name: Deploy Ingress To Local Kubernetes Cluser Using a Manifest from the repo
+name: Deploy rabbitMQ to Local minikube cluster 
 
 on: 
   push:
@@ -6,8 +6,14 @@ on:
       - master
 
 jobs:
-  runs-on: "self-hosted"
+  check-files:
+    runs-on: "self-hosted"
+    steps: 
+      - name: checkout the repo
+        uses: actions/checkout@v4
 
-  steps: 
-    - name: checkout repo 
-      uses: actions/checkout@v4
+      - name: navigate to the directory of the rabbitmq deployment manifests
+        run: cd src/rabbit/manifests
+
+      - name: list the files
+        run: ls
