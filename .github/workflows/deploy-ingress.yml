@@ -12,8 +12,8 @@ jobs:
       - name: checkout the repo
         uses: actions/checkout@v4
 
-      - name: navigate to the directory of the rabbitmq deployment manifests
-        run: cd src/rabbit/manifests
+      - name: navigate to the directory of the rabbitmq deployment manifests and list directories
+        run: cd src/rabbit/manifests | 
+          ls
 
-      - name: list the files
-        run: ls
+      
