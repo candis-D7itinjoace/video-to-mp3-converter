@@ -1,0 +1,13 @@
+name: Deploy Ingress To Local Kubernetes Cluser Using a Manifest from the repo
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  runs-on: "self-hosted"
+
+  steps: 
+    - name: checkout repo 
+      uses: actions/checkout@v4
